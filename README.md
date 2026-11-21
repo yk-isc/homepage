@@ -130,6 +130,23 @@ Working on this site had been something I had wanted to do for a while, especial
 * Todo: Finish rendering image 1, work on all other assets needed after laying out the website, insert images when ready, work on animations and responsiveness, ship the website
 </details>
 
+<details>
+<summary>
+11/17/26
+</summary>
+
+* Today, all I did was structure the about section of the website, though I could not actually put any content into it other than the header. Tomorrow, I am planning on making sure I add animations and add more content, especially setting up the projects and contact section if possible.
+* Todo: Finish rendering image 1, work on all other assets needed after laying out the website, insert images when ready, work on animations and responsiveness, ship the website
+</details>
+
+<details>
+<summary>
+11/18/26
+</summary>
+
+* Today, I started writing my About content into the card within the about section, and I added animations into it.
+* Todo: Finish rendering image 1, work on all other assets needed after laying out the website, insert images when ready, work on animations and responsiveness, ship the website
+
 ## Results
 
 ## Conclusion
