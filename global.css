@@ -252,6 +252,14 @@ button.retro {
     margin-right: 20px;
 }
 
+.head-left h1{
+    font-family: var(--title-font);
+    font-weight: 900;
+    color: var(--secondary-color);
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+
 .head-right{
     display: flex;
     gap: 10px, 20px;
@@ -319,6 +327,14 @@ section {
     align-items: center;
     justify-content: center;
     display: flex;
+    overflow:hidden
+}
+
+.div2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
 }
 
 .handle {
@@ -578,9 +594,9 @@ body::-webkit-scrollbar,
     transform: translate(-50%, -50%);
     width: 0.4em;
     height: 0.4em;
-    border: 2px solid var(--bg);
+    border: 2px solid #fff;
     border-radius: 0.04em;
-    background: var(--bg);
+    background: #fff;
     will-change: transform, width, height;
     overflow: hidden;
 }
@@ -638,4 +654,21 @@ body::-webkit-scrollbar,
     text-align: center;
     margin: 0 20px 0 20px;
     font-family: var(--body-font);
+}
+
+#project-head {
+    color: var(--main-text);
+    font-family: var(--title-font);
+    font-weight: 900;
+    text-align: center; 
+    align-self: flex-start;
+    transform: scaleY(1.1);
+    font-size: 80px;
+    letter-spacing: -7px;
+    transition: 0.3s ease-in-out;
+}
+
+#project-head:hover {
+    color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
 }
