@@ -78,7 +78,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg);
-    scroll-behavior: smooth;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -144,7 +143,6 @@ header {
     justify-content:space-between;
     padding: 7px 40px;
     z-index: 999;
-    background-color: var(--main-bg);
     width: 100%;
     height: 70px;
     box-sizing: border-box;
@@ -227,6 +225,12 @@ button.retro {
     width: auto;
     height:24px;
     position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+#theme-switch.menu-open svg{
+    fill: var(--bg);
+    transition: 0.3s ease-in-out;
 }
 
 #theme-switch svg:first-child {
@@ -252,12 +256,18 @@ button.retro {
     margin-right: 20px;
 }
 
-.head-left h1{
+#head-logo {
     font-family: var(--title-font);
     font-weight: 900;
     color: var(--secondary-color);
     font-size: 40px;
     letter-spacing: -2px;
+    text-decoration: none;
+}
+
+#head-logo.menu-open {
+    color: var(--bg);
+    transition: 0.3s ease-in-out;
 }
 
 .head-right{
@@ -320,14 +330,12 @@ section {
     grid-column: span 7 / span 7;
     grid-column-start: 4;
     grid-row-start: 3;
-    border: var(--main-text) 1px solid;
     position: relative;
     z-index: 2;
     transition: border 0.2s ease-in-out;
     align-items: center;
     justify-content: center;
     display: flex;
-    overflow:hidden
 }
 
 .div2 img {
@@ -364,6 +372,10 @@ section {
 .bottom-right {
     bottom: -4px;
     right: -4px;
+}
+
+.window {
+    border: 1px solid var(--main-text);
 }
 
 .window.activity.handle {
@@ -502,6 +514,14 @@ section {
     display: block;
 }
 
+.menu-toggle.open {
+    border: 2px solid var(--bg);
+}
+
+.menu-toggle.open span{
+    background-color: var(--bg);
+}
+
 .menu-toggle.open span:first-child {
     transform: translateY(4px) rotate(45deg) scaleX(0.75);
 }
@@ -516,9 +536,10 @@ section {
     left: 0;
     width: 100%;
     height: 100svh;
-    background-color: #0a0a0a;
+    background-color: var(--secondary-color);
     overflow: hidden;
     scrollbar-width: none;
+    transition: background-color 0.3 ease-in-out;
 }
 
 .menu-container {
@@ -616,7 +637,6 @@ body::-webkit-scrollbar,
 .about-container {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -631,23 +651,6 @@ body::-webkit-scrollbar,
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid var(--main-text);
-}
-
-.about-card h1 {
-    color: var(--main-text);
-    font-family: var(--title-font);
-    font-weight: 900;
-    text-align: center; 
-    transform: scaleY(1.1);
-    font-size: 80px;
-    letter-spacing: -7px;
-    transition: 0.3s ease-in-out;
-}
-
-.about-card h1:hover {
-    color: var(--secondary-color);
-    transition: 0.3s ease-in-out;
 }
 
 .about-card p {
@@ -657,18 +660,69 @@ body::-webkit-scrollbar,
 }
 
 #project-head {
+    align-self: flex-start;
+}
+
+.blue-h1 {
+    transition: 0.3s ease-in-out;
+}
+
+.blue-h1:hover {
+    color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
+}
+
+.header {
     color: var(--main-text);
     font-family: var(--title-font);
     font-weight: 900;
     text-align: center; 
-    align-self: flex-start;
     transform: scaleY(1.1);
     font-size: 80px;
     letter-spacing: -7px;
-    transition: 0.3s ease-in-out;
 }
 
-#project-head:hover {
-    color: var(--secondary-color);
-    transition: 0.3s ease-in-out;
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    width: 25%;
+    height: 50%;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: var(--main-text);
+}
+
+.pro-img {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+}
+
+.procard-content {
+    flex: 0 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+.procard-content {
+    margin: 0;
+    font-family: var(--body-font);
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .project-card {
+        width: 75%;
+    }
 }

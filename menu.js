@@ -3,6 +3,8 @@ gsap.registerPlugin(SplitText);
 const page = document.querySelector(".page");
 const menuToggle = document.querySelector(".menu-toggle");
 const menuCol = document.querySelectorAll(".menu-col");
+const menuLogo = document.getElementById("head-logo")
+const themeBtn = document.getElementById("theme-switch");
 const mobile = window.matchMedia("(max-width: 999px)");
 const desktop = 1000;
 const tiltMax = 25;
@@ -10,6 +12,7 @@ const driftMax = 25;
 const smoothing = 0.075;
 
 const lenis = new Lenis({ wrapper: page, content: page, autoRaf: true });
+window.lenis = lenis;
 
 const cardOpen = { width: "18rem", height: "14rem", borderRadius: "0.4rem" };
 const cardClosed = { width: "0.4em", height: "0.4em", borderRadius: "0.04em" };
@@ -25,10 +28,12 @@ const cardCenter = {
 
 const isDesktop = () => window.innerWidth >= desktop;
 
-SplitText.create(".menu-col a", {
-    type: "words",
-    wordsClass: "word",
-    mask: "words",
+document.fonts.ready.then(() => {
+    SplitText.create(".menu-col a", {
+        type: "words",
+        wordsClass: "word",
+        mask: "words",
+    });
 });
 
 let isMenuHidden = false;
@@ -58,6 +63,8 @@ let t1;
 menuToggle.addEventListener("click", () => {
     isMenuOpen = !isMenuOpen;
     menuToggle.classList.toggle("open", isMenuOpen);
+    themeBtn.classList.toggle("menu-open", isMenuOpen);
+    menuLogo.classList.toggle("menu-open", isMenuOpen);
     document.body.classList.toggle("menu-open", isMenuOpen);
     isMenuOpen ? lenis.stop() : lenis.start();
 

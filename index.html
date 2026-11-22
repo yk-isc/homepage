@@ -11,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js" integrity="sha512-EVIYaMR2tIn6veV5jmP0M0DFBSBt5rAhRPsW0zwC9LyPzAIHNeWiZ4B5orgYeWbNq55vIwk8fOKCtTHwiCBvaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="menu.js" defer></script>
+    <script src="project.js" defer></script>
 </head>
 <body>
     <div class="cursor" id="cursor">
@@ -19,7 +21,7 @@
     </div>
     <header>
             <div class="head-left">
-                <h1 id="head-logo">IL*</h1>
+                <a id="head-logo" class="scramble" href="#hero">IL*</a>
                 </div>
             </div>
 
@@ -39,31 +41,19 @@
     <div class="menu">
         <div class="menu-container">
             <div class="menu-col">
-                <a href="/">C
-                    <span class="nav-hover">
-                        <span class="nav-img"><img src="#"></span>
-                    </span>
-                ntact</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="menu-col">
-                <a href="/">Ab 
-                    <span class="nav-hover">
-                        <span class="nav-img"><img src="#"></span>
-                    </span>
-                ut</a>
+                <a href="#about">About</a>
             </div>
             <div class="menu-col">
-                <a href="/">Pr
-                    <span class="nav-hover">
-                        <span class="nav-img"><img src="#"></span>
-                    </span>jects</a>
-                </a>
+                <a href="#projects">Projects</a>
             </div>
         </div>
     </div>
 
     <div class="page">
-       <section class="hero">
+       <section class="hero" id="hero">
             <div id="lines"></div>
             <div class="hero-content">
                 <div class="div2 window">
@@ -76,25 +66,60 @@
                 <div class="hero-title"><h1>ISAAC L.*</h1></div>
             </div>
        </section>
-       <section class="about">
+       <section class="about" id>
             <div class="about-container">
                 <div class="about-card window">
                     <span class="handle top-left"></span>
                     <span class="handle top-right"></span>
                     <span class="handle bottom-left"></span>
                     <span class="handle bottom-right"></span>
-                    <h1>ABOUT*</h1>
+                    <h1 class="blue-h1 header">ABOUT*</h1>
                     <p>My name is Isaac, and I like to create. Every project I build is something that I use to build on my skills, but the one thing I'm good at is designing them.</p>
                 </div>
             </div>
-       </section>
-       <section class="projects">
-        <h1 id="project-head">PROJECTS*</h1>
+        </section>
+        <section class="projects">
+        <h1 id="project-head" class="blue-h1 header">PROJECTS*</h1>
+
+        <div class="project-card window">
+            <span class="handle top-left"></span>
+            <span class="handle top-right"></span>
+            <span class="handle bottom-left"></span>
+            <span class="handle bottom-right"></span>
+
+            <div class="pro-img"><img src="assets/images/painting1.jpg" alt="placeholder"></div>
+            <div class="procard-content"><p>description</p></div>
+        </div>
+
+        <div class="project-card window">
+            <span class="handle top-left"></span>
+            <span class="handle top-right"></span>
+            <span class="handle bottom-left"></span>
+            <span class="handle bottom-right"></span>
+            
+            <div class="pro-img"><img src="assets/images/painting1.jpg" alt="placeholder"></div>
+            <div class="procard-content"><p>description</p></div>
+        </div>
+
+        <div class="project-card window">
+            <span class="handle top-left"></span>
+            <span class="handle top-right"></span>
+            <span class="handle bottom-left"></span>
+            <span class="handle bottom-right"></span>
+            
+            <div class="pro-img"><img src="assets/images/painting1.jpg" alt="placeholder"></div>
+            <div class="procard-content"><p>description</p></div>
+        </div>
+        </section>
+        <section class="contact">
+            <div class="contact-content">
+                <h1 class="blue-h1 header">CONTACT*</h1>
+            </div>
        </section>
     </div>
 
     <script>
-      const text = document.getElementById("head-logo");
+      const text = document.querySelectorAll("scramble");
         const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
         function scrambleEffect() {
@@ -110,36 +135,6 @@
             }
         }
         text.addEventListener("mouseover", scrambleEffect);
-    </script>
-    <script>
-        const header = document.querySelector(".header");
-        const buttons = document.querySelectorAll(".retro");
-        const slide = document.querySelector(".glass-slide");
-        const nav = document.querySelector(".head-right");
-
-        function updateActive(item) {
-            slide.style.width = `${item.offsetWidth}px`;
-            slide.style.left = `${item.offsetLeft}px`;
-            slide.style.opacity = '1';
-
-            buttons.forEach(b => b.classList.remove('active'));
-            item.classList.add('active');
-        }
-
-        const firstActive = document.querySelector('.retro.active') || buttons[0];
-        if (firstActive) {
-            updateActive(firstActive);
-        }
-
-        buttons.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                updateActive(item);
-            })
-        })
-        nav.addEventListener('mouseleave', () => {
-            slide.style.opacity = '0';
-            buttons.forEach(b => b.classList.remove('active'));
-        });
     </script>
 </body>
 </html>
