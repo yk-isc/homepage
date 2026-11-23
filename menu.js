@@ -58,7 +58,8 @@ lenis.on("scroll", ({ direction }) => {
     });
 });
 
-let isMenuOpen = false
+let isMenuOpen = false;
+let ignoreScroll = false;
 let t1;
 
 
