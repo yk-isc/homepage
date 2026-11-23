@@ -39,6 +39,7 @@ document.fonts.ready.then(() => {
 let isMenuHidden = false;
 
 lenis.on("scroll", ({ direction }) => {
+    if (isMenuOpen || ignoreScroll) return;
     const hide = direction == 1;
     if (hide == isMenuHidden) return;
     isMenuHidden = hide;
@@ -60,8 +61,12 @@ lenis.on("scroll", ({ direction }) => {
 let isMenuOpen = false
 let t1;
 
-menuToggle.addEventListener("click", () => {
-    isMenuOpen = !isMenuOpen;
+
+
+function setMenu(open) {
+    if (open === isMenuOpen) return;
+    isMenuOpen = open;
+
     menuToggle.classList.toggle("open", isMenuOpen);
     themeBtn.classList.toggle("menu-open", isMenuOpen);
     menuLogo.classList.toggle("menu-open", isMenuOpen);
@@ -90,6 +95,23 @@ menuToggle.addEventListener("click", () => {
                 },
                 isMenuOpen ? 0.65 + i * 0.1 : 0.1,
             );
+        });
+    });
+};
+
+menuToggle.addEventListener("click", () => setMenu(!isMenuOpen));
+
+document.querySelectorAll(".menu-col a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+
+        e.preventDefault();
+        ignoreScroll = true;
+        setMenu(false);
+        lenis.scrollTo(href, {
+            duration: 1.5,
+            onComplete: () => (ignoreScroll = false),
         });
     });
 });

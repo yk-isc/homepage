@@ -715,10 +715,13 @@ img {
     align-items: center;
 }
 
-.procard-content {
+.procard-content p,
+.procard-content a{
     margin: 0;
     font-family: var(--body-font);
     font-size: 14px;
+    text-decoration: none;
+    color: inherit;
 }
 
 @media (max-width: 900px) {
