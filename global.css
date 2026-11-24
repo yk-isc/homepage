@@ -361,6 +361,7 @@ section {
     grid-column: 11 / span 2;
     color: var(--main-text);
     font-family: var(--body-font);
+    left: 10px;
 }
 
 .herotext-span {
