@@ -312,6 +312,7 @@ section {
     text-align: center;
     letter-spacing: -10px;
     transform: scaleX(1.6) scaleY(1.7);
+    will-change: transform, opacity;
 }
 
 #hero-span {
@@ -727,6 +728,10 @@ img {
     color: var(--main-text);
 }
 
+.procard-content a:hover{
+    background-color: var(--secondary-color);
+}
+
 .contact {
     height: 75vh;
     display: flex;
@@ -853,6 +858,8 @@ img {
     z-index: 2;
     background: transparent;
     opacity: 0;
+    will-change: left, top, width, height;
+    contain: layout paint;
 }
 
 .loader-count {
@@ -866,6 +873,7 @@ img {
     color: var(--main-text);
     z-index: 3;
     mix-blend-mode: normal;
+    will-change: transform;
 }
 
 @media (max-width: 900px) {

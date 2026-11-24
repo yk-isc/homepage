@@ -25,9 +25,13 @@
     let remaining = imgs.length + 1;
     const total = remaining;
     const progress = { value: 0 };
-
+    let last = -1
+    
     const render = () => {
-        count.textContent = String(Math.round(progress.value)).padStart(3, "0") + "%";
+        const val = Math.round(progress.value);
+        if (val === last) return;
+        last = val;
+        count.textContent = String(val).padStart(3, "0") + "%";
     };
 
     const loaded = new Promise((resolve) => {
@@ -43,11 +47,7 @@
         };
 
         imgs.forEach((img) => {
-            if (img.complete) tick();
-            else {
-                img.addEventListener("load", tick, { once: true });
-                img.addEventListener("error", tick, { once: true });
-            }
+            img.decode().catch(() => {}).then(tick);
         });
         document.fonts.ready.then(tick);
     });
@@ -75,7 +75,7 @@
             onComplete: () => {
                 loader.remove();
                 window.lenis?.start();
-                ScrollTrigger.refresh();
+                requestAnimationFrame(() => ScrollTrigger.refresh());
             },
         });
 
