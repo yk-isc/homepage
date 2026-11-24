@@ -13,12 +13,14 @@
     const heroBox = document.querySelector(".hero .div2");
     const heroImg = heroBox.querySelector("img")
     const heroHead = document.querySelector(".hero-title h1");
+    const heroTexts = gsap.utils.toArray(".herotext-1, .herotext-2");
 
     // start
     gsap.set(heroBox, { opacity: 0 });
     gsap.set(heroImg, { opacity: 0 });
     gsap.set(heroHead, { yPercent: 120, opacity: 0});
     gsap.set("header", { yPercent: -100, opacity: 0 });
+    gsap.set(heroTexts, { y: 40, opacity: 0 });
 
     // progress
     const imgs = [...document.images];
@@ -26,7 +28,7 @@
     const total = remaining;
     const progress = { value: 0 };
     let last = -1
-    
+
     const render = () => {
         const val = Math.round(progress.value);
         if (val === last) return;
@@ -99,8 +101,16 @@
         .set(win, { opacity: 0 })
         .set(bg, { autoAlpha: 0 })
         // hero loads in here
-        .to(heroImg, { opacity: 1, duration: 0.8, ease: "power2.out" })
-        .to(heroImg, { opacity: 1, duration: 0.8, ease: "power2.out" })
+        .to(heroImg, {
+            opacity: 1,
+            duration: 0.8, 
+            ease: "power2.out",
+        })
+        .to(heroImg, {
+            opacity: 1, 
+            duration: 0.8, 
+            ease: "power2.out",
+        })
         .to(heroHead, {
             yPercent: 0,
             opacity: 1,
@@ -112,6 +122,13 @@
             opacity: 1,
             duration: 0.8,
             ease: "power3.out",
-        }, "<");
+        }, "<")
+        .to(heroTexts, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power4.out",
+            stagger: 0.15,
+        }, "<0.1");   
     }
 })();

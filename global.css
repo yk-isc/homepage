@@ -346,6 +346,27 @@ section {
     background-size: cover;
 }
 
+.herotext-1 {
+    position: relative;
+    grid-row-start: 3;
+    grid-column: 2 / span 2;
+    margin-left: 35px;
+    color: var(--main-text);
+    font-family: var(--body-font);
+}
+
+.herotext-2 {
+    position: relative;
+    grid-row-start: 4;
+    grid-column: 11 / span 2;
+    color: var(--main-text);
+    font-family: var(--body-font);
+}
+
+.herotext-span {
+   text-decoration: underline dotted;
+}
+
 .handle {
     position: absolute;
     width: 10px;
@@ -726,6 +747,7 @@ img {
     font-size: 16px;
     text-decoration: none;
     color: var(--main-text);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .procard-content a:hover{
