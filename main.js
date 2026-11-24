@@ -60,5 +60,5 @@ window.addEventListener("mousemove", (e)=>{
     }
 
     cursor.classList.toggle("active", !!e.target.closest(".window, .folder-ch"));
-    cursor.classList.toggle("shrink", !!e.target.closest('.retro'));
+    cursor.classList.toggle("shrink", !!e.target.closest('.retro, .menu-toggle, a'));
 })

@@ -14,8 +14,20 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="menu.js" defer></script>
     <script src="project.js" defer></script>
+    <script src="loader.js" defer></script>
 </head>
 <body>
+    <div class="loader" id="loader">
+        <div class="loader-bg">
+            <div class="loader-window window">
+                <span class="handle top-left"></span>
+                <span class="handle top-right"></span>
+                <span class="handle bottom-left"></span>
+                <span class="handle bottom-right"></span>
+            </div>
+            <p class="loader-count">000%</p>
+        </div>
+    </div>
     <div class="cursor" id="cursor">
         <div class="cursor-inner"></div>
     </div>
