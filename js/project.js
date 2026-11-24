@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.lenis.on("scroll", ScrollTrigger.update);
 
     const cards = gsap.utils.toArray(".project-card");
-    const rotations = [-12, 10, -5, 5, -5, -2];
+    const rotations = [3-12, 10, -5, 5, -5, -2];
 
     cards.forEach((card, index) => {
         gsap.set(card, {
-            y: window.innerHeight,
-            rotate: rotations[index],
+            y: () => page.clientHeight,
+            rotate: (i) => rotations[i % rotations.length],
         });
     });
 

@@ -11,7 +11,12 @@ const tiltMax = 25;
 const driftMax = 25;
 const smoothing = 0.075;
 
-const lenis = new Lenis({ wrapper: page, content: page, autoRaf: true });
+const lenis = new Lenis({
+    wrapper: page, 
+    content: page, 
+    autoRaf: true,
+    syncTouch: true,
+});
 window.lenis = lenis;
 
 const cardOpen = { width: "18rem", height: "14rem", borderRadius: "0.4rem" };
