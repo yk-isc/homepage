@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    ScrolLTrigger.config({ ignoreMobileResize: true});
+
     const lenis = new Lenis();
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         end: `+=${window.innerHeight * 8}`,
         pin: true,
         pinSpacing: true,
+        anticipatePin: 1,
         scrub: 1,
         onUpdate: (self) => {
             const progress = self.progress;
