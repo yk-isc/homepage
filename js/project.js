@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrolLTrigger.config({ ignoreMobileResize: true});
+    ScrollTrigger.config({ ignoreMobileResize: true});
 
     const lenis = new Lenis();
     lenis.on("scroll", ScrollTrigger.update);

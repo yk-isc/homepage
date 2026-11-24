@@ -159,7 +159,7 @@ Working on this site had been something I had wanted to do for a while, especial
 
 <details>
 <summary>
-11/20-21/26
+11/22/26
 </summary>
 
 * Today, I decided to work on the projects page and start the contacts page. Unfortunately, I was unable to finish the contacts page and ended up deleting it to work on later, but I was able to do the projects page and overall focused on that instead. For the projects page, I had an idea of wanting it to be like a stack of cards where you were able to scroll through them, in which they would have links in the bottom. I also ended up finishing with the image and uploading it, which is something I'm proud of. Using GSAP again, I animated it to stack like cards as you scroll, displaying the images and the links to them below. I added my homepage as a project, but I did not include the link to it as you would already be in the website. 

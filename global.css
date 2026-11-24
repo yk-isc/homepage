@@ -13,6 +13,8 @@
     --success-color: #00AF54;
     --title-font: "AHGrotesque";
     --body-font: "Departure";
+
+    --card: min(80vw, 50svh, 440px);
 }
 
 .darkmode {
@@ -718,13 +720,14 @@ img {
     inset: 0;
     margin: auto;
     will-change: transform;
-    width: 25%;
-    height: 50%;
+    width: var(--card);
+    height: var(--card);
     padding: 0.5em;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     color: var(--main-text);
+    position: absolute;
 }
 
 .pro-img {
@@ -912,9 +915,6 @@ img {
 }
 
 @media (max-width: 900px) {
-    .project-card {
-        width: 75%;
-    }
 
     .contact-container {
         grid-template-columns: 1fr;
@@ -960,8 +960,6 @@ img {
         letter-spacing: -0.067em;
         margin: 0.5em 0;
     }
-
-    .project-card {width: 80%; height: 55%;}
 
     .contact { 
         height: auto;
