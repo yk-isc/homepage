@@ -19,7 +19,10 @@ First iteration of my personal website. The theme I was going for was something 
 
 Working on this site had been something I had wanted to do for a while, especially since I had been certified in HTML and CSS for around 2 years now. This site was made to bring all my projects and skills into one place. In addition, it would be used for anything else that I like to do such as art. Essentially, it would create one big portfolio that would include sections for professional skills such as coding and CAD, with creative freelance skills on the side such as art or writing. It also gives me  achance to show off and refine the skills I currently have with web design and design in general. To add onto the creative portion of the website, I am thinking of adding easter eggs and hidden features that are not supposed to be the main focus of the site but will still help me refine my skills, like mini projects connected to the main one.
 
-## Changelogs
+<details>
+<summary>
+Changelogs and Documentation
+</summary>
 
 <details>
 <summary>
@@ -162,9 +165,32 @@ Working on this site had been something I had wanted to do for a while, especial
 11/22/26
 </summary>
 
-* Today, I decided to work on the projects page and start the contacts page. Unfortunately, I was unable to finish the contacts page and ended up deleting it to work on later, but I was able to do the projects page and overall focused on that instead. For the projects page, I had an idea of wanting it to be like a stack of cards where you were able to scroll through them, in which they would have links in the bottom. I also ended up finishing with the image and uploading it, which is something I'm proud of. Using GSAP again, I animated it to stack like cards as you scroll, displaying the images and the links to them below. I added my homepage as a project, but I did not include the link to it as you would already be in the website. 
-* Todo: Work on all other assets needed after laying out the website, work on animations and responsiveness, ship the website
+* Today, after reworking the navigation menu yesterday, some of the links were not working. I decided to fix that and also rework the body font to Departure rather than Inter, which I think looks a bit better. And once I did fix the links to actually go to the page that its assigned to, the page just wouldn't scroll anymore. To fix this, I tweaked some of the script and made sure to check for some typos, which I did end up doing.
+* Todo: Finish animations and responsiveness
 </details>
+
+<details>
+<summary>
+11/23/26
+</summary>
+
+* Today, after finishing the rework on the menu completely, I added the contact page and started constructing it. Through this I started to better hone my skills on grids and try not to do what I did with the hero, which was make tons of rows and columns. Through this I made it a lot more organized, and I added hover animations over the links. Then, I thought, going into the site at first is a bit laggy, so why not add a loading screen? This took up most of my time today, but I was able to do it with the help of a friend who has built websites before. She showed me how to get the JavaScript working for the count and fix any bugs related to it, so it took me less time than I thought it would. Just to make the hero feel less empty after this, I decided to add text utilizing the grids and organized the JS files instead of making them scattered in the root folder. I did start working on the responsiveness but the Projects kept not wanting to scroll. Tomorrow, I want to tweak the responsiveness and finally finish off the website.
+* Todo: Finish adding responsiveness
+</details>
+
+<details>
+<summary>
+11/24/26
+</summary>
+
+* Today, I finally fixed the Project cards being skinny on mobile and it not scrolling on desktop, which was all because of a typo in the code where I put ScrolLTrigger instead of ScrollTrigger. I have officially finished off my website.
+</details>
+</details>
+
 ## Results
 
+After working on animations and responsivevness, I got an amazing site that I am personally proud of while also learning a lot about animations on a website and responsiveness. While it could be better, I think this is all I could do at this moment.
+
 ## Conclusion
+
+Working on this website fueled my creativity once more and has me wanting to work on more projects. It definitely feels good to finally finish a project and ship it. In the future though, I want to manage my workflow better and also design the website before I start building it, as I did go into this blind. This was an amazing learning experience for me.
