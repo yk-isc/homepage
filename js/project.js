@@ -1,62 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
-
-    ScrollTrigger.config({ ignoreMobileResize: true});
-
-    const lenis = new Lenis();
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     const page = document.querySelector(".page");
     ScrollTrigger.defaults({ scroller: page });
-    window.lenis.on("scroll", ScrollTrigger.update);
+    
+    if (!window.lenis) {
+    console.error("window.lenis missing: menu.js failed or loads after project.js");
+    return;
+    }
+    window.lenis.on("scroll", ScrollTrigger.update); // menu.js's Lenis, no new one
 
     const cards = gsap.utils.toArray(".project-card");
-    const rotations = [3-12, 10, -5, 5, -5, -2];
+    const rotations = [-12, 10, -5, 5, -5, -2];
+    const total = cards.length;
 
-    cards.forEach((card, index) => {
-        gsap.set(card, {
-            y: () => page.clientHeight,
-            rotate: (i) => rotations[i % rotations.length],
-        });
+    gsap.set(cards, {
+        y: () => page.clientHeight,
+        rotate: (i) => rotations[i % rotations.length],
     });
 
     ScrollTrigger.create({
         trigger: ".projects",
+        scroller: page,
         start: "top top",
-        end: `+=${window.innerHeight * 8}`,
+        end: () => `+=${page.clientHeight * (total + 1)}`,
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
-        scrub: 1,
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
             const progress = self.progress;
-            const totalCards = cards.length;
-            const progressPerCard = 1 / totalCards;
+            const perCard = 1 / total;
 
-            cards.forEach((card, index) => {
-                const cardStart = index * progressPerCard;
-                let cardProgress = (progress - cardStart) / progressPerCard;
-                cardProgress = Math.min(Math.max(cardProgress, 0), 1);
+            cards.forEach((card, i) => {
+                const start = i * perCard;
+                const p = gsap.utils.clamp(0, 1, (progress - start) / perCard);
 
-                let yPos = window.innerHeight * (1 - cardProgress);
-                let xPos = 0;
+                let y = page.clientHeight * (1 - p);
+                let x = 0;
 
-                if (cardProgress === 1 && index < totalCards - 1) {
-                    const remainingProgress = (progress - (cardStart + progressPerCard)) / (1 - (cardStart + progressPerCard));
-
-                        if (remainingProgress > 0) {
-                            const distanceMultiplier = 1 - index * 0.15;
-                            xPos = -window.innerWidth * 0.3 * distanceMultiplier * remainingProgress;
-                            yPos = -window.innerHeight * 0.3 * distanceMultiplier * remainingProgress;
-                        }
+                if (p === 1 && i < total - 1) {
+                    const rest = (progress - (start + perCard)) / (1 - (start + perCard));
+                    if (rest > 0) {
+                        const m = 1 - i * 0.15;
+                        x = -page.clientWidth * 0.3 * m * rest;
+                        y = -page.clientHeight * 0.3 * m * rest;
+                    }
                 }
 
-                gsap.to(card, { y: yPos, x: xPos, duration: 0, ease: "none" });
+                gsap.set(card, { x, y });
             });
-        }
+        },
     });
 });
